@@ -1,0 +1,17 @@
+<div class="row" ng-hide="name._id">
+  <div class="col-md-6">
+      <h2>Create new Names</h2>
+  </div>
+</div>
+<div class="container">
+  <div>
+    <p>
+      <label>First Name (required)</label> 
+      <input id="name" class="form-control" type="text" ng-model="name.firstName" required> 
+    </p>
+    <p>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="saveName(name)">Save</button>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Back</button>
+    </p>
+  </div>
+</div>

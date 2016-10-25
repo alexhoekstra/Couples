@@ -1,24 +1,45 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title> Blog</title>
-		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-	</head>
-	<body>
-		<div id="header">
-			<span>My Simple Blog</span>
-			<ul id="menu">
-				<li>ABOUT</li>
-				<li>ARTICLES</li>
-                <li>VIDEOS</li>
-                <li>SUBSCRIBE</li>
-            </ul>
+<html lang="en" ng-app="namesApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Angular lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Create some padding for body -->
+    <style>
+      body {
+        min-height: 2000px;
+        padding-top: 70px;
+      }
+    </style>
+
+    <script src="/js/app.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand" href="#/">mLab Name List</div>
         </div>
-        <div id="content">
-            <h2><a href="ui_libraries_comparison.html">JavaScript UI libraries comparison</a></h2>
-            <p>It seems to be pretty easy to create a good-looking web page. Even your neighbor has one or two of them. It's for sure! For approximately two decades of World Wide Web existence hordes of web developers are trying to improve the way of how you interact with the Global Network. And how it interacts with you through different technologies such as JavaScript, for example... <a class="article" href="ui_libraries_comparison.html">Read more</a></p>
-            <h2><a href="">Node.js for beginners. Building your own web server</a></h2>
-            <p>We will use Node.js for our project. Node.js is an open source, cross-platform runtime environment, which allows you to build server-side and networking applications. It's written in JavaScript and can be run within the Node.js runtime on any platform. First of all, of course, you need to install it... <a class="article" href="hode.html">Read more</a></p>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/">Home</a></li>
+          </ul>
         </div>
-    </body>
+      </div>
+    </nav>
+    <!-- Dynamically render templates -->
+    <div class="container" ng-view>
+    </div>
+  </body>
 </html>

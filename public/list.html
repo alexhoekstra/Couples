@@ -1,0 +1,25 @@
+<div class = "row">
+  <div class="col-md-6">
+    <h2>
+      Names
+    </h2>
+  </div>
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-2">
+    <a style="margin-top:20px" class="btn btn-default" href="#/new/name">New</a>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+<div class="container">
+  <table class="table table-hover">
+    <tbody>
+      <tr ng-repeat="name in names | orderBy:'firstName'" style="cursor:pointer">
+        <td>
+          <a ng-href="#/name/{{name._id}}">{{ name.firstName }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

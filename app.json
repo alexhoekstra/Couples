@@ -1,0 +1,6 @@
+{
+  "name": "MEAN Name List Example",
+  "description": "A MEAN app that allows users to insert Names into a database.",
+  "keywords": ["node", "express", "angular", "MEAN", "mongodb", "REST", "API"],
+  "addons": ["mongolab"]
+}
