@@ -15,9 +15,9 @@
 <div class="container">
   <table class="table table-hover">
     <tbody>
-      <tr ng-repeat="name in names | orderBy:'firstName'" style="cursor:pointer">
+      <tr ng-repeat="name in names | orderBy:'name'" style="cursor:pointer">
         <td>
-          <a ng-href="#/name/{{name._id}}">{{ name.firstName }}</a>
+          <a ng-href="#/name/{{name._id}}">{{ name.name }}</a>
         </td>
       </tr>
     </tbody>

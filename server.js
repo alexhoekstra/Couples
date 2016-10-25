@@ -113,7 +113,19 @@ app.delete("/names/:id", function(req, res) {
   });
 });
 
+/*  "/names/:name"
+ *    GET: find name by name
+ */
 
+app.get("/names/:name", function(req, res) {
+  db.collection(NAME_COLLECTION).findOne({ firstName : new ObjectID(req.params.name) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get name");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
 
 
 

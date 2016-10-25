@@ -31,10 +31,18 @@ angular.module("couplesApp", ['ngRoute'])
                 redirectTo: "/"
             })
     })
+/*
+    .service("CoupleNames", function($http) {
+        this.allNames = function(name) {
+            var nameList = $http.get("/names").
+            then()
+        }
+    })
+*/
     .service("Names", function($http) {
         this.getNames = function() {
             return $http.get("/names").
-                then(function(response) {
+                then(function(response) {   
                     return response;
                 }, function(response) {
                     alert("Error finding Names.");
@@ -81,6 +89,13 @@ angular.module("couplesApp", ['ngRoute'])
     })
     .controller("CouplesController", function(names, $scope) {
         $scope.names = names.data;
+        $scope.updateGender = function(selectedGender) {
+            $scope.gender = selectedGender;
+        }
+
+        $scope.findMatches(name){
+
+        }
     })
     .controller("ListController", function(names, $scope) {
         $scope.names = names.data;
