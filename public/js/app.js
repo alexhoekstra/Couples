@@ -7,14 +7,14 @@ angular.module("couplesApp", ['ngRoute'])
                 
                 }
             })
-            .when("/list"),{
+            .when("/list",{
                 templateUrl: "list.html",
                 controller: "ListController",
                 resolve: {
                     names: function(Names) {
                         return Names.getNames();
                     }
-            }
+            })
             .when("/new/name", {
                 controller: "NewNameController",
                 templateUrl: "name-form.html"
