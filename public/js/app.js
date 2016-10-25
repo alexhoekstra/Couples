@@ -17,6 +17,7 @@ angular.module("couplesApp", ['ngRoute'])
                     names: function(Names) {
                         return Names.getNames();
                     }
+                }
             })
             .when("/new/name", {
                 controller: "NewNameController",
