@@ -87,6 +87,7 @@ angular.module("couplesApp", ['ngRoute'])
                 });
         }
     })
+/*
     .controller("CouplesController", function(names, $scope) {
         $scope.names = names.data;
         $scope.updateGender = function(selectedGender) {
@@ -97,6 +98,7 @@ angular.module("couplesApp", ['ngRoute'])
 
         }
     })
+*/
     .controller("ListController", function(names, $scope) {
         $scope.names = names.data;
     })
