@@ -1,15 +1,20 @@
-angular.module("nameApp", ['ngRoute'])
+angular.module("couplesApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
+                controller: "CouplesController",
+                templateUrl:"couples-name.html"
+                
+                }
+            })
+            .when("/list"),{
                 templateUrl: "list.html",
                 controller: "ListController",
                 resolve: {
                     names: function(Names) {
                         return Names.getNames();
                     }
-                }
-            })
+            }
             .when("/new/name", {
                 controller: "NewNameController",
                 templateUrl: "name-form.html"
@@ -69,6 +74,9 @@ angular.module("nameApp", ['ngRoute'])
                     console.log(response);
                 });
         }
+    })
+    .controller("CouplesController", function(names, $scope) {
+        $scope.names = names.data;
     })
     .controller("ListController", function(names, $scope) {
         $scope.names = names.data;

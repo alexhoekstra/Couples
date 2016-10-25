@@ -1,8 +1,8 @@
-var http = require("http");
-var fs = require("fs");
-var path = require("path");
-var mime = require("mime");
+//var http = require("http");
+//var fs = require("fs");
 var express = require("express");
+var path = require("path");
+//var mime = require("mime");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
@@ -34,7 +34,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   });
 });
 
-// CONTACTS API ROUTES BELOW
+// Names API ROUTES BELOW
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -83,7 +83,7 @@ app.post("/names", function(req, res) {
 app.get("/names/:id", function(req, res) {
 	db.collection(NAME_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to get contact");
+      handleError(res, err.message, "Failed to get name");
     } else {
       res.status(200).json(doc);
     }
@@ -96,7 +96,7 @@ app.put("/names/:id", function(req, res) {
 
   db.collection(NAME_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to update contact");
+      handleError(res, err.message, "Failed to update name");
     } else {
       res.status(204).end();
     }
@@ -106,7 +106,7 @@ app.put("/names/:id", function(req, res) {
 app.delete("/names/:id", function(req, res) {
 	db.collection(NAME_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
     if (err) {
-      handleError(res, err.message, "Failed to delete contact");
+      handleError(res, err.message, "Failed to delete name");
     } else {
       res.status(204).end();
     }
