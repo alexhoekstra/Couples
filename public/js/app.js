@@ -2,9 +2,12 @@ angular.module("couplesApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
+                templateUrl:"couples-name.html",
                 controller: "CouplesController",
-                templateUrl:"couples-name.html"
-                
+                resolve: {
+                    names: function(Names) {
+                        return Names.getNames();
+                    }
                 }
             })
             .when("/list",{
