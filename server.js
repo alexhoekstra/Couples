@@ -118,7 +118,7 @@ app.delete("/names/:id", function(req, res) {
  */
 
 app.get("/names/:name", function(req, res) {
-  db.collection(NAME_COLLECTION).findOne({ firstName : new ObjectID(req.params.name) }, function(err, doc) {
+  db.collection(NAME_COLLECTION).findOne({ name : new ObjectID(req.params.name) }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get name");
     } else {
