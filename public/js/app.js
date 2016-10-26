@@ -104,7 +104,7 @@ angular.module("couplesApp", ['ngRoute'])
                     }
                     else
                     {
-                        isCollapsed = false;
+                        $scope.isCollapsed = false;
                     }
                 })
 
