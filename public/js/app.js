@@ -31,14 +31,14 @@ angular.module("couplesApp", ['ngRoute'])
                 redirectTo: "/"
             })
     })
-/*
-    .service("CoupleNames", function($http) {
+
+    /*.service("CoupleNames", function($http) {
         this.allNames = function(name) {
             var nameList = $http.get("/names").
             then()
         }
-    })
-*/
+    })*/
+
     .service("Names", function($http) {
         this.getNames = function() {
             return $http.get("/names").
@@ -87,18 +87,17 @@ angular.module("couplesApp", ['ngRoute'])
                 });
         }
     })
-/*
+
     .controller("CouplesController", function(names, $scope) {
         $scope.names = names.data;
         $scope.updateGender = function(selectedGender) {
             $scope.gender = selectedGender;
         }
 
-        $scope.findMatches(name){
+        $scope.findMatches= function(name){
 
         }
     })
-*/
     .controller("ListController", function(names, $scope) {
         $scope.names = names.data;
     })
