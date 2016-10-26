@@ -1,4 +1,5 @@
 angular.module("couplesApp", ['ngRoute','ui.bootstrap'])
+    $scope.isCollapsed = true;
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
@@ -89,7 +90,6 @@ angular.module("couplesApp", ['ngRoute','ui.bootstrap'])
     })
 
     .controller("CouplesController", function(names, $scope) {
-        $scope.isCollapsed = true;
         $scope.names = names.data;
         $scope.updateGender = function(selectedGender) {
             $scope.gender = selectedGender;
