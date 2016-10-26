@@ -1,4 +1,4 @@
-angular.module("couplesApp", ['ngRoute'])
+angular.module("couplesApp", ['ngRoute','ui.bootstrap'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
