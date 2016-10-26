@@ -8,8 +8,9 @@
     </div>
     <div class="small-12 columns">
     <p>
+       <input type="text" class="hidden" value="" id="selected-name" />
       <select ng-model="selectedGender" ng-change="updateGender(selectedGender)" class="selectpicker" style ="width: 220px"required>
-        <option>Male Names</option>
+        <option selected>Male Names</option>
         <option>Female Names</option>
         <option>Both</option>
       </select>
