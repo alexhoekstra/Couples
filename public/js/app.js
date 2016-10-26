@@ -89,12 +89,24 @@ angular.module("couplesApp", ['ngRoute'])
     })
 
     .controller("CouplesController", function(names, $scope) {
+        $scope.isCollapsed = true;
         $scope.names = names.data;
         $scope.updateGender = function(selectedGender) {
             $scope.gender = selectedGender;
         }
 
         $scope.findMatches= function(name){
+            $http.get("/namebyname/"+ name).
+                then(function(response) {
+                    if(response != null)
+                    {
+
+                    }
+                    else
+                    {
+                        isCollapsed = false;
+                    }
+                })
 
         }
     })
