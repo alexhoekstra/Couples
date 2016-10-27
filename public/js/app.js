@@ -99,7 +99,7 @@ angular.module("couplesApp", ['ngRoute'])
         }
     })
 
-    .controller("CouplesController", function(names, $scope, $location, Names) {
+    .controller("CouplesController", function(names, $scope, Names) {
         $scope.names = names.data;
         $scope.updateGender = function(selectedGender) {
             $scope.gender = selectedGender;
@@ -108,8 +108,7 @@ angular.module("couplesApp", ['ngRoute'])
         $scope.findMatches= function(name){
             Names.getNameByName(name).
                 then(function(doc) {
-                    var nameUrl = "/name/" + doc.data._id;
-                    $location.path(nameUrl);
+                    console.log(doc.name);
                 }, function(response) {
                     alert(response);
                 });
