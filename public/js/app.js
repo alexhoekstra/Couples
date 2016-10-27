@@ -98,7 +98,7 @@ angular.module("couplesApp", ['ngRoute'])
         }
     })
 
-    .controller("CouplesController", function(names, $scope,$http) {
+    .controller("CouplesController", function(names, $scope, Names) {
         $scope.names = names.data;
         $scope.updateGender = function(selectedGender) {
             $scope.gender = selectedGender;
