@@ -1,7 +1,7 @@
 angular.module("couplesApp", ['ngRoute'])
     .factory('_', ['$window', function($window) {
         return $window._; // assumes underscore has already been loaded on the page
-    }]);
+    }])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
