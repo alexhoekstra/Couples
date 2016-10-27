@@ -88,6 +88,7 @@ angular.module("couplesApp", ['ngRoute'])
         }
         this.getNameByName = function(name) {
             var url = "/namebyname/"+ name;
+            console.log(url);
             return $http.get(url).
                 then(function(response) {
                     return response;
@@ -107,7 +108,8 @@ angular.module("couplesApp", ['ngRoute'])
         $scope.findMatches= function(name){
             Names.getNameByName(name).
                 then(function(doc) {
-                    //good response
+                    var nameUrl = "/name/" + doc.data._id;
+                    $location.path(nameUrl);
                 }, function(response) {
                     alert(response);
                 });
