@@ -1,4 +1,4 @@
-angular.module("couplesApp", ['ngRoute'])
+angular.module("couplesApp", ['ngRoute','ui.bootstrap'])
     $scope.isCollapsed = true;
     .config(function($routeProvider) {
         $routeProvider
