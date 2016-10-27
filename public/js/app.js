@@ -1,4 +1,7 @@
 angular.module("couplesApp", ['ngRoute'])
+    .factory('_', ['$window', function($window) {
+        return $window._; // assumes underscore has already been loaded on the page
+    }]);
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
@@ -99,7 +102,7 @@ angular.module("couplesApp", ['ngRoute'])
         }
     })
 
-    .controller("CouplesController", function(names, $scope, Names) {
+    .controller("CouplesController", function(names, $scope, Names, _) {
         $scope.names = names.data;
         $scope.updateGender = function(selectedGender) {
             $scope.gender = selectedGender;
