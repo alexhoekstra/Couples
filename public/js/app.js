@@ -86,26 +86,31 @@ angular.module("couplesApp", ['ngRoute'])
                     console.log(response);
                 });
         }
+        this.getNameByName = function(name) {
+            var url = "/namebyname/"+ name;
+            return $http.get(url).
+                then(function(response) {
+                    return response;
+                }, function(response) {
+                    alert("Error finding this name");
+                    console.log(response);
+                });
+        }
     })
 
-    .controller("CouplesController", function(names, $scope) {
+    .controller("CouplesController", function(names, $scope,$http) {
         $scope.names = names.data;
         $scope.updateGender = function(selectedGender) {
             $scope.gender = selectedGender;
         }
 
         $scope.findMatches= function(name){
-            $http.get("/namebyname/"+ name).
-                then(function(response) {
-                    if(response != null)
-                    {
-
-                    }
-                    else
-                    {
-                        $scope.isCollapsed = false;
-                    }
-                })
+            Names.getNameByName(name).
+                then(function(doc) {
+                    //good response
+                }, function(response) {
+                    alert(response);
+                });
 
         }
     })
