@@ -132,7 +132,7 @@ angular.module("couplesApp", ['ngRoute'])
                         //     }));
                         // }
                     });
-                    angular.forEach(names, function(value, key){
+                    angular.forEach(names.data, function(value, key){
                         console.log(value.name);
                     })
 
