@@ -116,8 +116,7 @@ angular.module("couplesApp", ['ngRoute'])
                     var name1Model = doc.data;
                     name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
                     name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
-                    var values = [{name: 'Jimi', gender: 'male'},{name: 'Peter', gender: 'male'},{name: 'Bob', gender: 'male'}];
-                    angular.forEach(values, function(value, key){
+                    angular.forEach(names.data, function(value, key){
                         var nicknameModels = nicknamesForCouple(name1Model, value);
                         if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
                             nicknames.push(_.max(nicknameModels, function(nicknameModel) {
