@@ -112,7 +112,7 @@ angular.module("couplesApp", ['ngRoute'])
             Names.getNameByName(name).
             then(function(doc) {
                     //Found a name
-                    var nicknames = [];
+                    //var nicknames = [];
                     var name1Model = doc.data;
                     name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
                     name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
