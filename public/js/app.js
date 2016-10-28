@@ -117,12 +117,13 @@ angular.module("couplesApp", ['ngRoute'])
                     name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
 
                     _.each(names, function(nameModel) {
-                        var nicknameModels = nicknamesForCouple(name1Model, nameModel);
-                            if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
-                                nicknames.push(_.max(nicknameModels, function(nicknameModel) {
-                                    return nicknameModel.score;
-                                }));
-                            }
+                        console.log(nameModel);
+                        // var nicknameModels = nicknamesForCouple(name1Model, nameModel);
+                        //     if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
+                        //         nicknames.push(_.max(nicknameModels, function(nicknameModel) {
+                        //             return nicknameModel.score;
+                        //         }));
+                        //     }
                     });
 
                 }, function(response) {
