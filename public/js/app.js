@@ -118,7 +118,7 @@ angular.module("couplesApp", ['ngRoute'])
                     name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
 
                     _.each(names, function(value, key){
-                        var nicknameModels = nicknamesForCouple(name1Model, key);
+                        var nicknameModels = nicknamesForCouple(name1Model, value[key]);
                         if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
                             nicknames.push(_.max(nicknameModels, function(nicknameModel) {
                                 return nicknameModel.score;
