@@ -44,13 +44,7 @@ angular.module("couplesApp", ['ngRoute'])
 
     .service("Names", function($http) {
         this.getNames = function() {
-            return $http.get("/names", {
-                transformResponse: function (data, headers) {
-                    //MESS WITH THE DATA
-                    data = angular.fromJson(data);
-                    return data;
-                }
-            }).
+            return $http.get("/names").
                 then(function(response) {   
                     return response;
                 }, function(response) {
