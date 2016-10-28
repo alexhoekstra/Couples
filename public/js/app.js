@@ -116,8 +116,9 @@ angular.module("couplesApp", ['ngRoute'])
                     name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
                     name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
 
-                    _.each(names, function(name) {
-                        console.log(name);
+                    _.each(names, function(value, key){
+                        _.each(value, function(value, key){
+                            console.log(value);
                         // var nicknameModels = nicknamesForCouple(name1Model, nameModel);
                         //     if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
                         //         nicknames.push(_.max(nicknameModels, function(nicknameModel) {
