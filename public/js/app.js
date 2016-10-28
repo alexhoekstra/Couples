@@ -125,6 +125,7 @@ angular.module("couplesApp", ['ngRoute'])
                         //             return nicknameModel.score;
                         //         }));
                         //     }
+                    }
                     });
 
                 }, function(response) {
