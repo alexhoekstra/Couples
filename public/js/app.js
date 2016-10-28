@@ -119,7 +119,7 @@ angular.module("couplesApp", ['ngRoute'])
 
                     _.each(names, function(value, key){
                         _.each(value, function(value, key){
-                            var nicknameModels = nicknamesForCouple(name1Model, nameModel);
+                            var nicknameModels = nicknamesForCouple(name1Model, value);
                             if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
                                 nicknames.push(_.max(nicknameModels, function(nicknameModel) {
                                     return nicknameModel.score;
