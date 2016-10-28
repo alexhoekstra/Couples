@@ -47,8 +47,7 @@ angular.module("couplesApp", ['ngRoute'])
             return $http.get("/names", {
                 transformResponse: function (data, headers) {
                     //MESS WITH THE DATA
-                    data = {};
-                    data.coolThing = 'BOOM-SHAKA-LAKA';
+                    data = angular.fromJson(data);
                     return data;
                 }
             }).
