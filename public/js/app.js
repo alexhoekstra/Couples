@@ -112,14 +112,19 @@ angular.module("couplesApp", ['ngRoute'])
             Names.getNameByName(name).
             then(function(doc) {
                     //Found a name
-                    //var nicknames = [];
+                    var nicknames = [];
                     var name1Model = doc.data;
                     name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
                     name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
 
                     _.each(names, function(value, key){
                         _.each(value, function(value, key){
-                            console.log(value);
+                            var nicknameModels = nicknamesForCouple(name1Model, nameModel);
+                            if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
+                                nicknames.push(_.max(nicknameModels, function(nicknameModel) {
+                                    return nicknameModel.score;
+                                }));
+                            }
                         });
                     });
 
