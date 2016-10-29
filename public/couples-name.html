@@ -46,9 +46,9 @@
       <button style="margin-top:20px" class="btn btn-default" ng-click="findCouples(name1,name2)">Find Couple Nicknames</button>
     </div>
   </div>
-  <div>
+  <div ng-show= "showCouples">
+    {{couplesString}}
     <ul class="nicknames" id="couple-nicknames">
-      {{nicknames[0].name1}} + {{nicknames[0].name2}}
       <div ng-repeat="nickname in coupleNames">
         <div class="nickname">{{nickname.nickname}}</div>
         <div class="score">Compatibility: {{nickname.score}}</div>
