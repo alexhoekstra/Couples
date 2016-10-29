@@ -6,8 +6,19 @@
 <div class="container">
   <div>
     <p>
-      <label>First Name (required)</label> 
+      <label>Name (required)</label> 
       <input id="name" class="form-control" type="text" ng-model="name.firstName" required> 
+    </p>
+    <p>
+      <label>Syllables (seperate with '-' ex. Jen-ni-fer) </label> 
+      <input id="name" class="form-control" type="text" ng-model="name.syllableString" required> 
+    </p>
+    <p>
+    <select ng-model="name.gender" class="selectpicker" style ="width: 220px"required>
+        <option value="">---Please select---</option> <!-- not selected / blank option -->
+        <option value="male">Male Names</option>
+        <option value="female">Female Names</option>
+      </select>
     </p>
     <p>
       <button style="margin-top:20px" class="btn btn-default" ng-click="saveName(name)">Save</button>
