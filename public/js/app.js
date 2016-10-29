@@ -165,7 +165,7 @@ angular.module("couplesApp", ['ngRoute'])
                     alert(response);
                 });
         }
-        var clearDisplay() {
+        var clearDisplay = function() {
             if(($scope.nicknames === "undefined" )){
                 $scope.nicknames = null;
             }
