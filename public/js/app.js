@@ -124,6 +124,7 @@ angular.module("couplesApp", ['ngRoute'])
                             }));
                         }
                     });
+                    $scope.nicknames = nicknames;
                     console.log(nicknames);
                 }, function(response) {
                     alert(response);
