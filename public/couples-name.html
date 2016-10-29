@@ -22,6 +22,12 @@
     </p>
   </div>
   <div ng-repeat="nickname in nicknames">
-    {{nickname.nickname}} : {{nickname.score}}
+    <li>
+      <div class="nickname">{{nickname.nickname}}</div>
+      <div class="nickname-details">
+        <div class="names">{{nickname.name1}} + {{nickname.name2}}</div>
+        <div class="score">Compatibility: {{nickname.score}}</div>
+      </div>
+    </li>
   </div>
 </div>
