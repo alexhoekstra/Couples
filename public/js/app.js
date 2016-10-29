@@ -145,7 +145,7 @@ angular.module("couplesApp", ['ngRoute'])
                 })
                 .value()
                 .slice(0, 10);
-            }
+            
             angular.forEach(nicknameModels, function(nicknameModels) {
                 nicknameModels.score = Math.round(nicknameModels.score * 100);
             });
