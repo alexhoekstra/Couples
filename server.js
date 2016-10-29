@@ -5,7 +5,6 @@ var path = require("path");
 //var mime = require("mime");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
-var bootstrapUi = require("bootstrapUi");
 var ObjectID = mongodb.ObjectID;
 var _ = require("underscore");
 
