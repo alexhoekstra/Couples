@@ -10,10 +10,9 @@
     <p>
        <input type="text" class="hidden" value="" id="selected-name" />
         <select ng-model="selectedGender" ng-change="updateGender(selectedGender)" class="selectpicker" style ="width: 220px"required>
-        <option value="">---Please select---</option> <!-- not selected / blank option -->
+        <option value="both" selected>Both Genders</option> <!-- not selected / blank option -->
         <option value="male">Male Names</option>
         <option value="female">Female Names</option>
-        <option value="both">Both</option>
       </select>
     </p>
     <p>
