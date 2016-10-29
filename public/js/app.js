@@ -115,12 +115,12 @@ angular.module("couplesApp", ['ngRoute'])
             Names.getNameByName(name).
             then(function(doc) {
                     //Found a name
+                    var name1Model = doc.data;
                     Names.getNamesByGender($scope.gender).
                         then(function(doc) {
                             //received list of names in gender
                             var names = doc.data;
                             var nicknames = [];
-                            var name1Model = doc.data;
                             name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
                             name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
                             angular.forEach(names.data, function(value, key){
