@@ -1,6 +1,7 @@
 <div class="container">
   <h2>Find your matches!</h2>
   <div>
+
     <p>
       <label>Name (required)</label> 
       <input id="name" class="form-control" type="text" ng-model="name" required> 
@@ -20,13 +21,30 @@
       <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Clear</button> 
     </p>-->
   </div>
-  <ul class="nicknames" id="couple-nicknames">
-    <div ng-repeat="nickname in nicknames">
-      <div class="nickname">{{nickname.nickname}}</div>
-      <div class="nickname-details">
-        <div class="names">{{nickname.name1}} + {{nickname.name2}}</div>
-        <div class="score">Compatibility: {{nickname.score}}</div>
+  <div>
+    <ul class="nicknames" id="couple-nicknames">
+      <div ng-repeat="nickname in nicknames">
+        <div class="nickname">{{nickname.nickname}}</div>
+        <div class="nickname-details">
+          <div class="names">{{nickname.name1}} + {{nickname.name2}}</div>
+          <div class="score">Compatibility: {{nickname.score}}</div>
+        </div>
       </div>
+    </ul>
+  </div>
+  <div>
+    <h2>Found someone special?</h2>
+    <div>
+      <p>
+        <label>Name (required)</label> 
+        <input id="name" class="form-control" type="text" ng-model="name1" required> 
+      </p>
+      <p>
+        <label>Name (required)</label> 
+        <input id="name" class="form-control" type="text" ng-model="name2" required> 
+      </p>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="findCouples(name1,name2)">Find Couple Nicknames</button>
     </div>
-</ul>
+  </div>
+
 </div>
