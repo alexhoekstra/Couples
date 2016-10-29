@@ -1,0 +1,19 @@
+.nicknames {
+	list-style: none;
+}
+
+.nicknames .nickname {
+	font-weight: bold;
+}
+
+.nicknames .names {
+	font-size: 0.9rem;
+}
+
+.nicknames .nickname-details {
+	font-size: 0.9rem;
+}
+
+.nicknames li {
+	margin-bottom: 0.4rem;
+}
