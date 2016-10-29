@@ -133,7 +133,7 @@ angular.module("couplesApp", ['ngRoute'])
         }
 
         var formatDisplay = function(nicknames) {
-            var nicknameModels = _.chain(nicknameModels)
+            var nicknameModels = _.chain(nicknames)
                 .groupBy(function(model) {
                     return model.nickname;
                 })
