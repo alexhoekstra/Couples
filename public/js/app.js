@@ -105,10 +105,10 @@ angular.module("couplesApp", ['ngRoute'])
         }
 
         $scope.findMatches= function(name){
-            angular.forEach(testName, function(name){
+            angular.forEach(testName, function(newName){
                 var persistName = {
-                                name: name.name,
-                                syllables: name.syllables,
+                                name: newName.name,
+                                syllables: newName.syllables,
                                 gender: "male",
                             };
                 Names.createName(persistName).then(function(doc) {
