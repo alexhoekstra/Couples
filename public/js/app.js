@@ -149,6 +149,7 @@ angular.module("couplesApp", ['ngRoute'])
             angular.forEach(nicknameModels, function(nicknameModels) {
                 nicknameModels.score = Math.round(nicknameModels.score * 100);
             });
+            return nicknameModels;
         }
 
         var getPrefixes = function(syllables) {
