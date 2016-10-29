@@ -126,7 +126,7 @@ angular.module("couplesApp", ['ngRoute'])
                     var name2 = doc.data;
                     var nickNames = nicknamesForCouple(name1, name2);
                     $scope.nicknames = formatDisplay(nicknames);
-                }), function(response) {
+                }, function(response) {
                     alert(response);
                 });
             }, function(response) {
