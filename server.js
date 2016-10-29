@@ -62,7 +62,7 @@ app.post("/names", function(req, res) {
   var newName = req.body;
   newName.createDate = new Date();
 
-  if (!(req.body.firstName)) {
+  if (!(req.body.name)) {
     handleError(res, "Invalid user input", "Must provide a first name.", 400);
   }
 
