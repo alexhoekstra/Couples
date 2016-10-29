@@ -1,4 +1,4 @@
-angular.module("couplesApp", ['ngRoute'])
+angular.module("couplesApp", ['ngRoute', 'ui.bootstrap'])
     .factory('_', ['$window', function($window) {
         return $window._; // assumes underscore has already been loaded on the page
     }])
