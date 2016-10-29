@@ -6,6 +6,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
+var _ = require("underscore");
 
 var NAME_COLLECTION = "names";
 
@@ -70,6 +71,19 @@ app.post("/names", function(req, res) {
       handleError(res, err.message, "Failed to create new Name.");
     } else {
       res.status(201).json(doc.ops[0]);
+    }
+  });
+});
+
+/*  "/names/gender/:gender"
+ *    GET: find all names by gender
+ */
+app.get("/names/gender/:gender", function(req, res) {
+  db.collection(NAME_COLLECTION).find({ gender : req.params.gender }).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get Names.");
+    } else {
+      res.status(200).json(docs);
     }
   });
 });

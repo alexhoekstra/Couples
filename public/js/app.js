@@ -34,14 +34,6 @@ angular.module("couplesApp", ['ngRoute'])
                 redirectTo: "/"
             })
     })
-
-    /*.service("CoupleNames", function($http) {
-        this.allNames = function(name) {
-            var nameList = $http.get("/names").
-            then()
-        }
-    })*/
-
     .service("Names", function($http) {
         this.getNames = function() {
             return $http.get("/names").
@@ -372,14 +364,10 @@ angular.module("couplesApp", ['ngRoute'])
                  
                 return jaro + l * p * (1 - jaro);
             }
-
             return {
                 JaroWinklerDistance: JaroWinklerDistance
             };
         }());
-
-
-
     })
     .controller("ListController", function(names, $scope) {
         $scope.names = names.data;
