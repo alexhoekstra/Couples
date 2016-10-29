@@ -112,24 +112,31 @@ angular.module("couplesApp", ['ngRoute'])
         }
 
         $scope.findMatches= function(name){
-            var names = Names.getNamesByGender($scope.gender);
             Names.getNameByName(name).
             then(function(doc) {
                     //Found a name
-                    var nicknames = [];
-                    var name1Model = doc.data;
-                    name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
-                    name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
-                    angular.forEach(names.data, function(value, key){
-                        var nicknameModels = nicknamesForCouple(name1Model, value);
-                        if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
-                            nicknames.push(_.max(nicknameModels, function(nicknameModel) {
-                                return nicknameModel.score;
-                            }));
-                        }
-                    });
-                    $scope.nicknames = formatDisplay(nicknames);
-                    console.log(nicknames);
+                    Names.getNamesByGender($scope.gender).
+                        then(function(doc) {
+                            //received list of names in gender
+                            var names = doc.data;
+                            var nicknames = [];
+                            var name1Model = doc.data;
+                            name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
+                            name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
+                            angular.forEach(names.data, function(value, key){
+                                var nicknameModels = nicknamesForCouple(name1Model, value);
+                                if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
+                                    nicknames.push(_.max(nicknameModels, function(nicknameModel) {
+                                        return nicknameModel.score;
+                                    }));
+                                }
+                            });
+                            $scope.nicknames = formatDisplay(nicknames);
+                            console.log(nicknames);
+                        },function(response) {
+                        alert(response);
+                        });
+                    
                 }, function(response) {
                     alert(response);
                 });
