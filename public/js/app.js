@@ -87,16 +87,22 @@ angular.module("couplesApp", ['ngRoute'])
                     console.log(response);
                 });
         }
-        this.getNamesByGender = function(gender) {
-            var url = "names/gender/" + gender;
-            console.log(url);
-            return $http.get(url).
-                then(function(response) {
-                    return response;
-                }, function(response) {
-                    alert("Error finding this name");
-                    console.log(response);
-                });
+        this.getNamesByGender = function(gender) {;
+            if(gender == "both"){
+                console.log("request for both genders")
+                return this.getNames();
+            }
+            else {
+                var url = "names/gender/" + gender;
+                console.log(url);
+                return $http.get(url).
+                    then(function(response) {
+                        return response;
+                    }, function(response) {
+                        alert("Error finding this name");
+                        console.log(response);
+                    });
+                }
         }
     })
 
