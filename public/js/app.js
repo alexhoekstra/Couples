@@ -390,12 +390,15 @@ angular.module("couplesApp", ['ngRoute'])
         }
 
         $scope.saveName = function(name) {
-            Names.createName(name).then(function(doc) {
-                var nameUrl = "/name/" + doc.data._id;
-                $location.path(nameUrl);
-            }, function(response) {
-                alert(response);
-            });
+            //parse the syllable string
+            name.syllables = $scope.syllableString.split("-");
+
+            // Names.createName(name).then(function(doc) {
+            //     var nameUrl = "/name/" + doc.data._id;
+            //     $location.path(nameUrl);
+            // }, function(response) {
+            //     alert(response);
+            // });
         }
     })
     .controller("EditNameController", function($scope, $routeParams, Names) {
