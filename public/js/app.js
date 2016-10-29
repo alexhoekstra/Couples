@@ -107,7 +107,7 @@ angular.module("couplesApp", ['ngRoute'])
         $scope.updateGender = function(selectedGender) {
             $scope.gender = selectedGender;
             if(!(typeof $scope.name === "undefined" || $scope.name == "")){
-                $scope.findMatches(name);
+                $scope.findMatches($scope.name);
             }
         }
 
