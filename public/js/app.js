@@ -124,12 +124,31 @@ angular.module("couplesApp", ['ngRoute'])
                             }));
                         }
                     });
-                    $scope.nicknames = nicknames;
+                    $scope.nicknames = formatDisplay(nicknames);
                     console.log(nicknames);
                 }, function(response) {
                     alert(response);
                 });
 
+        }
+
+        var formatDisplay = function(nicknames) {
+            var nicknameModels = _.chain(nicknameModels)
+                .groupBy(function(model) {
+                    return model.nickname;
+                })
+                .map(function(models) {
+                    return _.max(models, function(model) { return model.score });
+                })
+                .sortBy(function(model) {
+                    return -model.score;
+                })
+                .value()
+                .slice(0, 10);
+            }
+            angular.forEach(nicknameModels, function(nicknameModels) {
+                nicknameModels.score = Math.round(nicknameModels.score * 100);
+            });
         }
 
         var getPrefixes = function(syllables) {
@@ -195,12 +214,12 @@ angular.module("couplesApp", ['ngRoute'])
                     _.each(prefixes, function(prefix) {
                         _.each(suffixes, function(suffix) {
                             var nicknameModel = {
-                            nickname: null,
-                            prefix: prefix,
-                            suffix: suffix,
-                            name1: name1Model.name,
-                            name2: name2Model.name,
-                            score: null
+                                nickname: null,
+                                prefix: prefix,
+                                suffix: suffix,
+                                name1: name1Model.name,
+                                name2: name2Model.name,
+                                score: null
                             };
 
                             nicknameModel.nickname = calculateNickname(nicknameModel);
