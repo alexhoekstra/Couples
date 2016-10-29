@@ -118,8 +118,20 @@ angular.module("couplesApp", ['ngRoute'])
         }
 
         $scope.findCouples = function(name1Model, name2Model){
-            var nickNames = nicknamesForCouple(name1Model, name2Model);
-            $scope.nicknames = formatDisplay(nicknames);
+            Names.getNameByName(name).
+            then(function(doc) {
+                var name1 = doc.data;
+                Names.getNameByName(name).
+                then(function(doc) {
+                    var name2 = doc.data;
+                    var nickNames = nicknamesForCouple(name1, name2);
+                    $scope.nicknames = formatDisplay(nicknames);
+                }), function(response) {
+                    alert(response);
+                });
+            }, function(response) {
+                alert(response);
+            });
         }
 
         $scope.findMatches= function(name){
