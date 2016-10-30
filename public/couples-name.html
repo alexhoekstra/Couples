@@ -6,10 +6,13 @@
       <label>Name (required)</label> 
       <input id="name" class="form-control" type="text" ng-model="name" required> 
     </p>
+    <div>
+      <alert ng-show="showAlert" type="warning" close="removeAlert()">ALERT</alert>
+    </div>
     <div class="small-12 columns">
       <label>Pair with:</label> 
     <p>
-       <input type="text" class="hidden" value="" id="selected-name" />
+        <input type="text" class="hidden" value="" id="selected-name" />
         <select ng-model="selectedGender" ng-change="updateGender(selectedGender)" class="selectpicker" style ="width: 220px"required>
         <option value="both" selected>Both Genders</option> <!-- not selected / blank option -->
         <option value="male">Male Names</option>
