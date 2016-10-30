@@ -6,7 +6,7 @@
       <label>Name (required)</label> 
       <input id="name" class="form-control" type="text" ng-model="name" required> 
     </p>
-    <div uib-alert ng-show="showAlert" type="warning" close="removeAlert()"> ALERT</div>
+    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
     <div class="small-12 columns">
       <label>Pair with:</label> 
     <p>
