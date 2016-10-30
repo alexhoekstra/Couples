@@ -141,7 +141,8 @@ angular.module("couplesApp", ['ngRoute'])
         };
 
         $scope.findMatches= function(name){
-             $scope.alerts.push({msg: 'Another alert!'});
+            $scope.alerts = [];
+            $scope.alerts.push({msg: 'Another alert!'});
             Names.getNameByName(name).
             then(function(doc) {
                     //Found a name
