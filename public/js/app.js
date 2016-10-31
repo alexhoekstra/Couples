@@ -170,9 +170,9 @@ angular.module("couplesApp", ['ngRoute'])
                         var copyName = name;
                         // parse the name
                         var newName = {
-                            name = copyName.replace("-",""),
-                            syllables = copyName.split("-"),
-                            gender = $scope.newGender
+                            name : copyName.replace("-",""),
+                            syllables : copyName.split("-"),
+                            gender : $scope.newGender
                         }
                         Names.createName(name).then(function(doc) {
                             $scope.name = newName.name;
