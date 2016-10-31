@@ -136,13 +136,9 @@ angular.module("couplesApp", ['ngRoute'])
             });
         }
 
-        $scope.closeAlert = function(index) {
-            $scope.alerts.splice(index, 1);
-        };
 
         $scope.findMatches= function(name){
-            $scope.alerts = [];
-            $scope.alerts.push({msg: 'Another alert!'});
+            $scope.promptInput = true;
             Names.getNameByName(name).
             then(function(doc) {
                     //Found a name
