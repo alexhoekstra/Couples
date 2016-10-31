@@ -140,33 +140,57 @@ angular.module("couplesApp", ['ngRoute'])
         $scope.findMatches= function(name){
             Names.getNameByName(name).
             then(function(doc) {
+                if(doc.data != null) {
                     //Found a name
                     var name1Model = doc.data;
                     Names.getNamesByGender($scope.gender).
-                        then(function(doc) {
-                            //received list of names in gender
-                            var names = doc.data;
-                            var nicknames = [];
-                            name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
-                            name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
-                            angular.forEach(names, function(value, key){
-                                var nicknameModels = nicknamesForCouple(name1Model, value);
-                                if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
-                                    nicknames.push(_.max(nicknameModels, function(nicknameModel) {
-                                        return nicknameModel.score;
-                                    }));
-                                }
-                            });
-                            $scope.nicknames = formatDisplay(nicknames);
-                            console.log(nicknames);
-                        },function(response) {
-                        alert(response);
+                    then(function(doc) {
+                        //received list of names in gender
+                        var names = doc.data;
+                        var nicknames = [];
+                        name1Model.cachedPrefixes = getPrefixes(name1Model.syllables);
+                        name1Model.cachedSuffixes = getSuffixes(name1Model.syllables);
+                        angular.forEach(names, function(value, key){
+                            var nicknameModels = nicknamesForCouple(name1Model, value);
+                            if (nicknameModels !== null && !_.isEmpty(nicknameModels)) {
+                                nicknames.push(_.max(nicknameModels, function(nicknameModel) {
+                                    return nicknameModel.score;
+                                }));
+                            }
                         });
-                    
-                }, function(response) {
-                    $scope.promptInput = true;
+                        $scope.nicknames = formatDisplay(nicknames);
+                        console.log(nicknames);
+                    },function(response) {
                     alert(response);
-                });
+                    });
+                }
+                else {
+                    if(name.indexOf("-") > 0)
+                    {
+                        var copyName = name;
+                        // parse the name
+                        var newName = {
+                            name = copyName.replace("-",""),
+                            syllables = copyName.split("-"),
+                            gender = $scope.newGender
+                        }
+                        Names.createName(name).then(function(doc) {
+                            $scope.name = newName.name;
+                            $scope.promptInput = false;
+                            findMatches(newName.name);
+
+                        }, function(response) {
+                            alert(response);
+                        });
+
+                    }
+                    else{
+                        $scope.promptInput = true;
+                    }
+                }
+            }, function(response) {
+                alert(response);
+            });
         }
 
         var formatDisplay = function(nicknames) {
