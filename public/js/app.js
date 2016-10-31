@@ -138,7 +138,6 @@ angular.module("couplesApp", ['ngRoute'])
 
 
         $scope.findMatches= function(name){
-            $scope.promptInput = true;
             Names.getNameByName(name).
             then(function(doc) {
                     //Found a name
@@ -165,6 +164,7 @@ angular.module("couplesApp", ['ngRoute'])
                         });
                     
                 }, function(response) {
+                    $scope.promptInput = true;
                     alert(response);
                 });
         }
