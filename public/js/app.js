@@ -174,7 +174,7 @@ angular.module("couplesApp", ['ngRoute'])
                             syllables : copyName.split("-"),
                             gender : $scope.newGender
                         }
-                        Names.createName(name).then(function(doc) {
+                        Names.createName(newName).then(function(doc) {
                             $scope.name = newName.name;
                             $scope.promptInput = false;
                             findMatches(newName.name);
